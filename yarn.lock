@@ -2471,11 +2471,6 @@
     "ansi-styles" "^4.1.0"
     "supports-color" "^7.1.0"
 
-"check-dictionary-word@^1.1.0":
-  "integrity" "sha512-ltloXy64gxxxQvN/x7166zEjLM8bVg5g+Y+r/fbCIMLVmo8ja02mRY9RJT+YCnNTiCffU8A18n664ioUDYaVtw=="
-  "resolved" "https://registry.npmjs.org/check-dictionary-word/-/check-dictionary-word-1.1.0.tgz"
-  "version" "1.1.0"
-
 "chokidar@^3.5.3":
   "integrity" "sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw=="
   "resolved" "https://registry.npmmirror.com/chokidar/-/chokidar-3.6.0.tgz"
@@ -7114,6 +7109,11 @@
   "integrity" "sha512-CC1bOL87PIWSBhDcTrdeLo6eGT7mCFtrg0uIJtqJUFyK+eJnzl8A1niH56uu7KMa5XFrtiV+AQuHO3n7DsHnLQ=="
   "resolved" "https://registry.npmmirror.com/wildcard/-/wildcard-2.0.1.tgz"
   "version" "2.0.1"
+
+"word-list@^4.0.0":
+  "integrity" "sha512-K5ziGoPUuJAq30nkpRfK29fkwYxtr8VQzhGB8R/XqP0aucU7Lxd9m1TcLW4pGS2y6cLu7HX7714VxdesArmMUg=="
+  "resolved" "https://registry.npmjs.org/word-list/-/word-list-4.0.0.tgz"
+  "version" "4.0.0"
 
 "word-wrap@^1.2.5":
   "integrity" "sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA=="

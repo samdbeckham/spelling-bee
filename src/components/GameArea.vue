@@ -13,21 +13,21 @@
 </template>
 
 <script>
-import isDictionaryWord from "check-dictionary-word";
+import { keyLetter, validLetters, validWords } from "../../data/random.json";
 import ControlCenter from "./ControlCenter.vue";
 import GuessChars from "./GuessChars.vue";
 import HexGrid from "./HexGrid.vue";
 import ScoreBoard from "./ScoreBoard.vue";
 import SubmittedWords from "./SubmittedWords.vue";
 
-const getLetters = (word) => {
-  const letters = word.split("");
-  return letters.map((letter, i) => ({
-    char: letter.toLowerCase(),
-    id: i,
-    isKey: i === 0,
-  }));
-};
+const hasKeyLetter = (letters) =>
+  letters.split("").find((letter) => letter === keyLetter);
+
+const letters = validLetters.map((letter, i) => ({
+  char: letter.toLowerCase(),
+  id: i,
+  isKey: letter === keyLetter,
+}));
 
 export default {
   name: "GameArea",
@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       chars: [],
-      letters: getLetters("Truancy"),
+      letters,
       submittedWords: [],
       score: 0,
     };
@@ -54,13 +54,10 @@ export default {
       this.chars.pop();
     },
     handleShuffle() {
-      const firstLetter = this.letters.shift();
       this.letters = this.letters.sort(() => Math.random() - 0.5);
-      this.letters.unshift(firstLetter);
     },
     handleSubmit() {
       const submittedWord = this.chars.map((char) => char.char).join("");
-      const hasKeyLetter = this.chars.filter((char) => char.isKey).length;
       const alreadyEntered = this.submittedWords.filter(
         (word) => word === submittedWord
       ).length;
@@ -74,9 +71,9 @@ export default {
 
       if (this.chars.length < 4) {
         this.handleBadInput("not enough letters");
-      } else if (!hasKeyLetter) {
+      } else if (!hasKeyLetter(submittedWord)) {
         this.handleBadInput("key letter missing");
-      } else if (!isDictionaryWord(submittedWord)) {
+      } else if (!validWords.includes(submittedWord)) {
         this.handleBadInput("not a word");
       } else if (alreadyEntered) {
         this.handleBadInput("Word already entered");

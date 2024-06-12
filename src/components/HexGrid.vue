@@ -1,7 +1,7 @@
 <template>
   <div class="grid">
     <HexCell
-      v-for="letter in letters"
+      v-for="letter in sortedLetters"
       :key="letter.id"
       :char="letter.char"
       :is-key="letter.isKey"
@@ -23,6 +23,13 @@ export default {
     letters: {
       type: Array,
       default: () => [],
+    },
+  },
+  computed: {
+    sortedLetters() {
+      const keyLetter = this.letters.find((letter) => letter.isKey);
+      const remainingLetters = this.letters.filter((letter) => !letter.isKey);
+      return [keyLetter, ...remainingLetters];
     },
   },
 };
