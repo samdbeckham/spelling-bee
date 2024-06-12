@@ -13,15 +13,14 @@
 </template>
 
 <script>
-import { keyLetter, validLetters, validWords } from "../../data/random.json";
+import { keyLetter, validLetters, validWords } from "@/data/random.json";
+import getScore from "@/helpers/getScore";
+
 import ControlCenter from "./ControlCenter.vue";
 import GuessChars from "./GuessChars.vue";
 import HexGrid from "./HexGrid.vue";
 import ScoreBoard from "./ScoreBoard.vue";
 import SubmittedWords from "./SubmittedWords.vue";
-
-const hasKeyLetter = (letters) =>
-  letters.split("").find((letter) => letter === keyLetter);
 
 const letters = validLetters.map((letter, i) => ({
   char: letter.toLowerCase(),
@@ -57,17 +56,9 @@ export default {
       this.letters = this.letters.sort(() => Math.random() - 0.5);
     },
     handleSubmit() {
-      const submittedWord = this.chars.map((char) => char.char).join("");
-      const alreadyEntered = this.submittedWords.filter(
-        (word) => word === submittedWord
-      ).length;
-      let score = this.chars.length - 3;
-      const uniqueLetters = new Set(submittedWord.split(""));
-      const isPangram = uniqueLetters.size === 7;
-
-      if (isPangram) {
-        score += 7;
-      }
+      const submittedWord = this.chars.map(({ char }) => char).join("");
+      const alreadyEntered = this.submittedWords.includes(submittedWord);
+      const hasKeyLetter = (word) => word.split("").includes(keyLetter);
 
       if (this.chars.length < 4) {
         this.handleBadInput("not enough letters");
@@ -79,7 +70,7 @@ export default {
         this.handleBadInput("Word already entered");
       } else {
         this.submittedWords.push(submittedWord);
-        this.score += score;
+        this.score += getScore(submittedWord);
       }
       this.chars = [];
     },
