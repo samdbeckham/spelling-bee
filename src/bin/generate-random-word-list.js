@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import wordListPath from "word-list";
+import getScore from "../helpers/getScore.js";
 
 // const filename = "t_ruancy";
 // const [keyLetter, remainingLetters] = filename.split("_");
@@ -27,9 +28,12 @@ const validWords = wordArray
   .filter(byKeyLetter)
   .filter(byValidLetters);
 
+const maxScore = validWords.reduce((acc, word) => acc + getScore(word), 0);
+
 fs.writeFileSync(
-  `./data/${filename}.json`,
+  `./src/data/${filename}.json`,
   JSON.stringify({
+    maxScore,
     keyLetter,
     validLetters,
     validWords,

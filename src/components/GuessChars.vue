@@ -28,6 +28,6 @@ export default {
 }
 
 .isKey {
-  color: #09c;
+  color: var(--color-primary);
 }
 </style>

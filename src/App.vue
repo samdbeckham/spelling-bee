@@ -4,6 +4,11 @@
 </template>
 
 <style>
+:root {
+  touch-action: none;
+  height: 100%;
+}
+
 *,
 *::before,
 *::after {
@@ -14,20 +19,13 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --color-primary: rgb(244, 216, 8);
+  --color-black: #333;
+  --color-gray: #ddd;
+  --color-white: #fff;
+
   text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+  color: var(--color-black);
 }
 </style>

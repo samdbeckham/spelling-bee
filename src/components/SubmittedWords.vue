@@ -26,7 +26,7 @@ export default {
 <style scoped>
 .submittedWords {
   border-radius: 0.6em;
-  border: 1px solid;
+  border: 1px solid var(--color-gray);
   display: flex;
   flex-wrap: nowrap;
   gap: 0.6em;
@@ -37,7 +37,7 @@ export default {
 }
 
 .submittedWords::before {
-  background: white;
+  background: var(--white);
   bottom: 0;
   content: "";
   display: block;
@@ -55,9 +55,9 @@ export default {
   display: block;
   position: absolute;
   right: 0.8em;
-  top: 0.7em;
+  top: 0.9em;
   transform: rotate(45deg);
-  width: 0.8em;
+  width: 0.5em;
 }
 
 .word {

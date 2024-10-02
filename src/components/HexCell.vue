@@ -26,28 +26,22 @@ export default {
 <style scoped>
 button {
   aspect-ratio: 1;
-  background-color: #eee;
+  background-color: var(--color-gray);
   border: none;
   clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
   color: inherit;
   cursor: pointer;
-  display: block;
   font-size: 1.6em;
   font-weight: bold;
-  outline: none;
   text-transform: uppercase;
-  width: 5.5rem;
-}
-
-button:hover {
-  background-color: #ccc;
+  width: var(--cell-width);
 }
 
 button:active {
-  background-color: #aaa;
+  transform: scale(0.8);
 }
 
 .isKey {
-  background-color: #09c;
+  background-color: var(--color-primary);
 }
 </style>

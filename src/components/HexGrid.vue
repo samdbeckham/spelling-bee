@@ -40,46 +40,49 @@ export default {
   --x-diff: 25%;
   --y-diff: 30%;
   --y-diff-m: 15%;
+  --cell-width: 90px;
+  --top: calc(50% - (0.5 * (var(--cell-width))));
+  --left: var(--top);
+
+  aspect-ratio: 1;
+  font-size: 1.2rem;
+  margin: 0;
   position: relative;
   width: 300px;
-  aspect-ratio: 1;
-  margin: 0;
-  font-size: 1.2rem;
 }
 
 .cell {
+  left: var(--left);
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.2s ease-in-out;
+  top: var(--top);
+  transition: transform 0.1s ease-in-out;
 }
 
 .cell:nth-child(2) {
-  top: calc(50% - var(--y-diff));
+  top: calc(var(--top) - var(--y-diff));
 }
 
 .cell:nth-child(3) {
-  top: calc(50% + var(--y-diff));
+  top: calc(var(--top) + var(--y-diff));
 }
 
 .cell:nth-child(4),
 .cell:nth-child(6) {
-  top: calc(50% - var(--y-diff-m));
+  top: calc(var(--top) - var(--y-diff-m));
 }
 
 .cell:nth-child(5),
 .cell:nth-child(7) {
-  top: calc(50% + var(--y-diff-m));
+  top: calc(var(--top) + var(--y-diff-m));
 }
 
 .cell:nth-child(4),
 .cell:nth-child(5) {
-  left: calc(50% - var(--x-diff));
+  left: calc(var(--left) - var(--x-diff));
 }
 
 .cell:nth-child(6),
 .cell:nth-child(7) {
-  left: calc(50% + var(--x-diff));
+  left: calc(var(--left) + var(--x-diff));
 }
 </style>

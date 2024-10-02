@@ -1,4 +1,4 @@
-import isPangram from "./isPangram";
+import isPangram from "./isPangram.js";
 
 export default (word) => {
   const baseScore = word.length - 3;

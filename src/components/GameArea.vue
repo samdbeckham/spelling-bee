@@ -1,6 +1,6 @@
 <template>
   <div class="gameArea">
-    <ScoreBoard :score="score" />
+    <ScoreBoard :score="score" :max-score="maxScore" />
     <SubmittedWords v-if="submittedWords.length" :words="submittedWords" />
     <GuessChars :chars="chars" />
     <HexGrid :letters="letters" @letter-pressed="handleLetterPressed" />
@@ -13,7 +13,12 @@
 </template>
 
 <script>
-import { keyLetter, validLetters, validWords } from "@/data/random.json";
+import {
+  keyLetter,
+  validLetters,
+  validWords,
+  maxScore,
+} from "@/data/random.json";
 import getScore from "@/helpers/getScore";
 
 import ControlCenter from "./ControlCenter.vue";
@@ -43,6 +48,7 @@ export default {
       letters,
       submittedWords: [],
       score: 0,
+      maxScore,
     };
   },
   methods: {

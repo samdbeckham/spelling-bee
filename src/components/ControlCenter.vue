@@ -18,20 +18,18 @@ export default {
   display: flex;
   gap: 1rem;
 }
+
 button {
-  background: white;
+  background: var(--color-white);
   border-radius: 99px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-gray);
+  color: inherit;
   cursor: pointer;
   font-size: 1rem;
   padding: 0.6rem 1rem;
 }
 
-button:hover {
-  background-color: #ccc;
-}
-
 button:active {
-  background-color: #aaa;
+  background-color: var(--color-gray);
 }
 </style>
